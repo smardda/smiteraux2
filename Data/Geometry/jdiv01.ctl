@@ -1,0 +1,12 @@
+&progfiles
+ rz_input_file='jetdiv_RZ.dat',
+/
+&datvtkparameters
+  length_units='me',
+  start_angle=5.,
+  finish_angle=-5.,
+  number_of_divisions=10
+  line_divisions=3
+/
+&plotselections
+/

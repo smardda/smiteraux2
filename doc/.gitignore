@@ -1,0 +1,6 @@
+*
+!.gitignore
+!images
+!doxyfile
+!DoxygenLayout.xml
+!text.f90

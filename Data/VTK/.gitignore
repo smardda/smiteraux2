@@ -1,0 +1,10 @@
+*
+!.gitignore
+!ant10.vtk
+!icrh_antenna_observer.vtk
+!icrh_antenna_shadow.vtk
+!panels.vtk
+!top1barpart.vtk
+!ant11.vtk
+!ant21.vtk
+!vtkcomb.ctl

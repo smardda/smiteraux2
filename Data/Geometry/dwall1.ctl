@@ -1,0 +1,18 @@
+&miscparameters
+ option='panel',
+ max_number_of_panels=80,
+ max_number_of_transforms=20,
+ angle_units='degrees'
+/
+&vtkfiles
+ vtk_input_file='dwal1_out.vtk'
+ number_of_copies=1
+/
+&panelarrayparameters
+      panel_bodies=1
+      panel_transform=1
+/
+&positionparameters
+      position_transform=1,  
+      position_scale=1000.,1000.,1000.
+/

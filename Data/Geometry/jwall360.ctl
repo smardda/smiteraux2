@@ -1,0 +1,12 @@
+&progfiles
+ rz_input_file='jetwall_RZ.dat',
+/
+&datvtkparameters
+  length_units='me',
+  start_angle=180.,
+  finish_angle=-180.,
+  number_of_divisions=180
+  line_divisions=3
+/
+&plotselections
+/

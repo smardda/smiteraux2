@@ -1,0 +1,1 @@
+plot "raym000010001.gnu" using 1:2:($4-$1):($5-$2) with vectors nohead notitle, "jetwall_RZ.dat" with lines notitle

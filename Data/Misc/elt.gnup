@@ -1,0 +1,4 @@
+# use !WA2 to produce output from all elts on stadard output, hack out date
+# for a couple of elts chosen at random, removing leading string "r0,z0,r,z"
+# then gnuplot with
+plot "elt1.txt" using 1:2:($3-$1):($4-$2) with vectors nohead notitle, "elt20.txt" using 1:2:($3-$1):($4-$2) with vectors nohead notitle

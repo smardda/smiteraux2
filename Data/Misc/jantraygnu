@@ -1,0 +1,36 @@
+#! /bin/bash
+# plot (with gnuplot) .gnu file produced by geoq plus elt 'file' from antest
+# version for JET geometry
+if [ $# -eq 0 ] || [ $# -gt 1 ] ; then
+  echo "Usage: $0 [<geoq run name>]"
+  exit
+fi
+# make wall.txt available, but do not plot
+if [ ! -e wall.txt ] ; then
+  ln -sf ../Data/Geometry/jwall.txt wall.txt
+  echo "Silhouette file ../wall.txt not found - fix up attempted"
+fi 
+rm -f table*.dat
+if [ -f $1_gnu.gnu ] ; then
+  gnuplot << ++
+  set yrange [-2:2]
+  set xrange [1.5:4.0]
+  unset surface
+  set contour
+  set cntrparam bspline
+  set cntrparam levels auto 20
+  #set cntrparam levels discrete 8.6464627662835962, 8.4464627662835962, 8.2464627662835962,1.0339153024128346E-003,0.1,0.2    
+  set table 'table.dat'
+  splot '$1_gnu.gnu' using (\$3):(\$4):(\$5) with lines
+  unset table
+  unset key
+  set xlabel "R"
+  set ylabel "Z"
+  set title "Contours of {/Symbol y}"
+  set output "beq+rays.ps"
+  set terminal postscript enhanced color dashed dashlength 2 font "Helvetica,30" \
+  linewidth 2 size 7,7
+  plot 'table.dat' with lines, 'jdiv11.gnu' with lines, 'jet297_eqbdry.gnu' with lines, \
+  'elt22.txt' using 1:2:(\$3-\$1):(\$4-\$2) with vectors nohead notitle
+++
+fi

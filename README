@@ -1,0 +1,54 @@
+Test deck 2 for SMARDDA-PFC
+---------------------------
+Deck assumes that SMARDDA-PFC is installed in the directory
+indicated by the shell environment variable $SMITER_DIR
+and that this test-deck directory is $HSAUX2. These might be set as
+export SMITER_DIR=~/smardda/pfc
+export HSAUX2=~/smardda/smiteraux2
+(If these environment variables are unset, tests.bash will make a guess
+as to where smardda-pfc and the test-deck have been installed.)
+
+The serial test-deck should be invoked using
+./tests.bash
+which should take less than 15 minutes on a high-end laptop or desktop. 
+More test-deck details and graphics for comparison with test output are provided
+by browser-based documentation, see
+$SMITER_DIR/doc/srcdoc/html/index.html
+Local directory doc is under development.
+When no longer needed, the test-deck outputs can be removed using
+./tests_clean.bash
+
+Set up for testing MPI parallelism is also described in 
+$SMITER_DIR/doc/srcdoc/html/index.html
+and the test-deck MPI scripts invoked using
+./test_mpi_ITER-valid.bash
+./test_mpi_JET-radn.bash
+
+The test cases occupy separate directories
+DEMO-double-null
+ITER-valid
+JET-ant
+JET-radn
+
+Most of the data for the test-deck are in subdirectory Data,
+which in turn has subdirectories
+Equilibrium - .eqdsk files
+Geometry - contains .dat files, .bash scripts and .ctl files for datvtk to generate geometry from points,
+either directly or invoked by the scripts
+(After test-deck execution, also contains log files from datvtk, and .vtk files produced by vtktfm)
+Misc - radiation source files, and files for production of gnuplot graphics
+Physics-Radiation - radiation data files derived using ADAS
+VTK - contains .vtk files used by the test-deck, antenna file produced using ParaView script, plus
+vtktfm ctl files for transforming and combining vtk files from CAD and/or datvtk.
+(After test-deck execution, also contains vtktfm log files.)
+
+Each test case is executed using a separate file case.bash using .ctl files
+stored in the case-specific directory in the appropriate subdirectories -
+G for target geometry processing,  P for power deposition calculation etc.
+The presence of case-specific skeleton files RES.ctl and SHAD.ctl provides
+a potentially useful degree of flexibility, facilitating study of different geometries
+and equilibria.
+
+The conventions applying to the outputs are listed
+in the online SMARDDA-PFC documentation.
+

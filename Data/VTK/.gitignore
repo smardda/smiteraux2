@@ -1,7 +1,7 @@
 *
 !.gitignore
 !ant10.vtk
-!icrh_antenna_observer.vtk
+!antfrtop3.vtk
 !icrh_antenna_shadow.vtk
 !panels.vtk
 !top1barpart.vtk

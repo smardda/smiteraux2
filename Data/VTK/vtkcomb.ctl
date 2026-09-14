@@ -5,7 +5,7 @@
  angle_units='degrees'
 /
 &vtkfiles
- vtk_input_file='panels.vtk', 'icrh_antenna_shadow.vtk', 'icrh_antenna_observer.vtk'
+ vtk_input_file='panels.vtk', 'icrh_antenna_shadow.vtk', 'antfrtop3.vtk'
  number_of_copies=1,1,1
 /
 &panelarrayparameters

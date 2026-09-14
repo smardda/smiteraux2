@@ -33,7 +33,7 @@ ln -sf $miscdir/iteradn.txt
 ln -sf $geomdir/iwall.txt wall.txt
 ## Step 2. Combine files to make shadow
 ## panels are representation of ITER first wall, icrh_antenna_shadow is 3/4 of antenna
-## icrh_antenna_observer is 1/4 top right of antenna (note biggest file by 10x)
+## antfrtop3 is the top 3 bars of the grille in the 1/4 top right of antenna
 pushd $vtkdir
 $INT/cmdwrap $tempdir vtktfm vtkcomb
 mv -f vtkcomb.vtk $geomdir
@@ -48,7 +48,7 @@ ln -sf $geomdir/$shadfile
 $INT/cmdwrap $tempdir geoq gshad
 if [ $? -ne 0 ] ; then exit 1 ;fi
 ## Step 3c. Results geometry
-# tiny corner of icrh_antenna_observer
+# tiny part of top left corner of antfrtop3
 cd ../G
 rm -f top1barpart.ctl
 sed -e "s:RES:$resfile:" -e "s:EQDSK:$eqfile:" < RES.ctl > top1barpart.ctl

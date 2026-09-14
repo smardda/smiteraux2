@@ -33,6 +33,7 @@ set -e
 # Load the compiler/MPI toolchain
 module purge
 module load foss/2022a
+module load gnuplot/5.4.4-GCCcore-11.3.0
 
 echo "=== MODULE LOADED ==="
 
@@ -53,23 +54,23 @@ echo "========================"
 
 # Set the SMARDDA environment for this test.
 export SMROOT="$HOME/smardda"
-export SMALIB_DIR="$SMROOT/smardda-lib"
-export SMITER_DIR="$SMROOT/smardda-pfc-new"
+export SMALIB_DIR="$SMROOT/smalib"
+export SMITER_DIR="$SMROOT/pfc"
 export PATH="$SMITER_DIR/exec:$SMALIB_DIR/exec:$PATH"
-export HSAUX="$SMITER_DIR/smiteraux"
+export HSAUX2="$SMITER_DIR/smiteraux2"
 
 echo "===  SMARDDA environment variables ==="
 echo "SMROOT     = $SMROOT"
 echo "SMALIB_DIR = $SMALIB_DIR"
 echo "SMITER_DIR = $SMITER_DIR"
-echo "HSAUX      = $HSAUX"
+echo "HSAUX2      = $HSAUX2"
 
-cd "$HSAUX"
+cd "$HSAUX2"
 
 echo "Current directory: $(pwd)"
 
 echo "Running test_mpi_JET-radn.bash..."
-bash ./test_mpi_ITER_valid.bash
+bash ./test_mpi_JET-radn.bash
 
 echo "=========================================="
 echo "Job finished at: $(date)"

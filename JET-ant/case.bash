@@ -5,22 +5,22 @@
 echo "Logging script use in directory $PWD"
 if [[ -z "$HSAUX2" ]] ; then export HSAUX2=${PWD%/*} ; fi
 #set up soft links to $HSAUX2 (usually smiteraux-full directory)
-equil=$HSAUX2/Data/Equilibrium
-geom=$HSAUX2/Data/Geometry
-vtk=$HSAUX2/Data/VTK
-misc=$HSAUX2/Data/Misc
+equildir=$HSAUX2/Data/Equilibrium
+geomdir=$HSAUX2/Data/Geometry
+vtkdir=$HSAUX2/Data/VTK
+miscdir=$HSAUX2/Data/Misc
 ## Step 0. Option to set up antenna file using geofil
-#pushd $geom
+#pushd $geomdir
 ##produces 10x10 representation of antenna sphere
 #geofil ant10
-#cp ant10.vtk $vtk
-ln -sf $vtk/ant10.vtk
+#cp ant10.vtk $vtkdir
+ln -sf $vtkdir/ant10.vtk
 ## Step 1.  Copy files other than geometry from Data
-cp  $geom/jwall.txt $equil/jet297.eqdsk $misc/kprad_00224_6.txt .
+cp  $geomdir/jwall.txt $equildir/jet297.eqdsk $miscdir/kprad_00224_6.txt .
 ## Step 2. Set up geometry and copy
-(cd $geom; ./jdivgeo.bash)
-ln -sf $geom/jdiv11.vtk
-ln -sf $misc/jdiv11.gnu
+(cd $geomdir; ./jdivgeo.bash)
+ln -sf $geomdir/jdiv11.vtk
+ln -sf $miscdir/jdiv11.gnu
 ## Step 3.  Run the test
 antest jant > jant.out
 #Analyse output dump 
@@ -33,7 +33,7 @@ q
 @@@@
 sed -i -e "s/r0,z0,r,z//" elt1.txt
 sed -i -e "s/r0,z0,r,z//" elt22.txt
-$misc/jantraygnu jant
+$miscdir/jantraygnu jant
 #gnuplot << @@
 #plot "jwall.txt" with lines notitle, "elt22.txt" using 1:2:(\$3-\$1):(\$4-\$2) with vectors nohead notitle
 #set output "rays.ps"

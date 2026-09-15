@@ -1,0 +1,7 @@
+*
+!.gitignore
+!eich.ctl
+!exp.ctl
+!exp-double.ctl
+!exp-inboard.ctl
+!exp-outboard.ctl

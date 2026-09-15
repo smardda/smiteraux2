@@ -1,6 +1,6 @@
 &inputfiles
- vtk_input_file='GEOM/dwallr360.vtk',
- eqdsk_input_file='EQUIL/nf6m_CQ2_inverted.eqdsk'
+ vtk_input_file='SHAD',
+ eqdsk_input_file='EQDSK'
 /
 &miscparameters
 /

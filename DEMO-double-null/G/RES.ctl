@@ -1,6 +1,6 @@
 &inputfiles
- vtk_input_file='GEOM/dwall1.vtk',
- eqdsk_input_file='EQUIL/nf6m_CQ2.eqdsk'
+ vtk_input_file='RES',
+ eqdsk_input_file='EQDSK'
 /
 &miscparameters
 /

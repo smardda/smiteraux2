@@ -9,6 +9,7 @@
 !doc
 !tests.bash
 !tests_clean.bash
+!tests_allclean.bash
 !test_mpi_ITER-valid.bash
 !test_mpi_ITER-valid.slurm
 !test_mpi_JET-radn.bash

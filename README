@@ -16,6 +16,8 @@ by browser-based documentation, see
 $SMITER_DIR/doc/srcdoc/html/index.html
 Local directory doc is under development.
 When no longer needed, the test-deck outputs can be removed using
+./tests_allclean.bash
+OR to keep the _powx.vtk files, use
 ./tests_clean.bash
 
 Set up for testing MPI parallelism is also described in 

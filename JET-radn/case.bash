@@ -62,16 +62,16 @@ if [ $? -ne 0 ] ; then exit 1 ;fi
 ## Step 6 analysis
 # Step 6a circular radiation profile
 ln -sf $equildir/$eqfile
-$INT/cmdwrap $tempdir $miscdir/jradngnu jone
+$miscdir/jradngnu jone
 mv -f radn.ps radn_circ.ps
 # Step 6b radiation profile analytic in flux psi
 $INT/cmdwrap $tempdir powcal jone_anal
 if [ $? -ne 0 ] ; then exit 1 ;fi
-$INT/cmdwrap $tempdir $miscdir/jradngnu jone_anal
+$miscdir/jradngnu jone_anal
 mv -f radn.ps radn_anal.ps
 # Step 6c use radiation data file kprad_00224_6.txt
 $INT/cmdwrap $tempdir powcal jone_file
 if [ $? -ne 0 ] ; then exit 1 ;fi
-$INT/cmdwrap $tempdir $miscdir/jradngnu jone_file
+$miscdir/jradngnu jone_file
 mv -f radn.ps radn_file.ps
 echo "Script at end" $(date)

@@ -3,5 +3,6 @@
 # execute without using parallelism in the current directory, 
 # the listed test cases:
 for i in DEMO-double-null ITER-valid JET-ant JET-radn;do 
+echo "******Start of Case name "$i
 (cd $i;./case.bash)
 done

@@ -1,5 +1,6 @@
 *
 !.gitignore
+!case.bash
 !G
 !H
 !P

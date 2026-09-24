@@ -158,10 +158,10 @@ ln -sf $vtkdir/$resfile
 #
 if [[ -n "${SLURM_NTASKS}" ]]; then
     NPROC=$SLURM_NTASKS
-    MPI_LAUNCH=mpirun
+    MPI_LAUNCH=(mpirun)
 else
     NPROC=$NPROC_LOCAL
-    MPI_LAUNCH=mpiexec --oversubscribe 
+    MPI_LAUNCH=(mpiexec --oversubscribe)
 fi
 echo "Using NP = $NPROC MPI processes"
 
@@ -174,7 +174,7 @@ echo
 echo "Running SMITER..."
 echo
 
-$MPI_LAUNCH -np "$NPROC" smiter \
+"${MPI_LAUNCH[@]}" -np "$NPROC" smiter \
     S/gshad.ctl \
     G/top1barpart.ctl \
     H/hdshad.ctl \

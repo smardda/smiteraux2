@@ -161,10 +161,10 @@ ln -sf $geomdir/$resfile
 #
 if [[ -n "${SLURM_NTASKS}" ]]; then
     NPROC=$SLURM_NTASKS
-    MPI_LAUNCH=mpirun
+    MPI_LAUNCH=(mpirun)
 else
     NPROC=$NPROC_LOCAL
-    MPI_LAUNCH=mpiexec --oversubscribe
+    MPI_LAUNCH=(mpiexec --oversubscribe)
 fi
 echo "Using NP = $NPROC MPI processes"
 
@@ -175,7 +175,7 @@ echo
 echo "Running SMITER: circular radiation profile..."
 echo
 
-$MPI_LAUNCH -np "$NPROC" smiter \
+"${MPI_LAUNCH[@]}" -np "$NPROC" smiter \
     S/jwallr360.ctl \
     G/jone.ctl \
     H/jwallr360.ctl \
@@ -200,7 +200,7 @@ echo
 echo "Running SMITER: analytic radiation profile..."
 echo
 
-$MPI_LAUNCH -np "$NPROC" smiter \
+"${MPI_LAUNCH[@]}" -np "$NPROC" smiter \
     S/jwallr360.ctl \
     G/jone.ctl \
     H/jwallr360.ctl \
@@ -224,7 +224,7 @@ echo
 echo "Running SMITER: file-input radiation profile..."
 echo
 
-$MPI_LAUNCH -np "$NPROC" smiter \
+"${MPI_LAUNCH[@]}" -np "$NPROC" smiter \
     S/jwallr360.ctl \
     G/jone.ctl \
     H/jwallr360.ctl \

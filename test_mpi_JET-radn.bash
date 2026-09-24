@@ -224,7 +224,7 @@ echo
 echo "Running SMITER: file-input radiation profile..."
 echo
 
-$MPI_LAUNCH -np "$NPROC" smiter \
+$MPI_LAUNCH --oversubscribe -np "$NPROC" smiter \
     S/jwallr360.ctl \
     G/jone.ctl \
     H/jwallr360.ctl \

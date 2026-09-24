@@ -164,7 +164,7 @@ if [[ -n "${SLURM_NTASKS}" ]]; then
     MPI_LAUNCH=mpirun
 else
     NPROC=$NPROC_LOCAL
-    MPI_LAUNCH=mpiexec
+    MPI_LAUNCH=mpiexec --oversubscribe
 fi
 echo "Using NP = $NPROC MPI processes"
 
@@ -224,7 +224,7 @@ echo
 echo "Running SMITER: file-input radiation profile..."
 echo
 
-$MPI_LAUNCH --oversubscribe -np "$NPROC" smiter \
+$MPI_LAUNCH -np "$NPROC" smiter \
     S/jwallr360.ctl \
     G/jone.ctl \
     H/jwallr360.ctl \

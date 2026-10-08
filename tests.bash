@@ -8,4 +8,4 @@ echo "******Start of Case name "$i
 done
 if [ $? -ne 0 ] ; then exit 1 ;fi
 #  Create tar file containing power deposition results
-tar cvf smiteraux2.tar $(find . -name "*_powx.vtk")
+#tar cvf smiteraux2.tar $(find . -name "*_powx.vtk")
